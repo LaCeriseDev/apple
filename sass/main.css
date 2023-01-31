@@ -1,6 +1,46 @@
+@font-face {
+  font-family: "Lato Light";
+  src: url("../../fonts/Lato/Lato-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("../../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
 body {
-  font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
   font-size: 1em;
+}
+
+h2, h4 {
+  font-family: "Roboto Regular", sans-serif;
+}
+
+body, h3, h5 {
+  font-family: "Lato Light", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.3em;
+}
+
+h5 {
+  font-size: 1.2em;
 }
 
 header {
@@ -10,28 +50,29 @@ header {
   z-index: 9999;
   width: 100%;
   font-size: 12px;
-  color: red;
-  background-color: #1D1D1D;
+  background-color: #000;
 }
 
 nav {
   /* centered content */
   margin: auto;
   max-width: 950px;
-  height: 48px;
+  height: 44px;
   max-height: 44px;
 }
 
-nav > .container {
+nav > .nav-centered {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.nav__item {
+.nav-item {
+  max-height: 44px;
   opacity: 0.8;
   color: #f5f5f7;
+  word-spacing: 0.1em;
   cursor: pointer;
   transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition-duration: 0.3s;
@@ -39,27 +80,110 @@ nav > .container {
   transition-delay: 0s;
   transition-property: opacity;
 }
-
-.nav__item:hover {
+.nav-item__logo img {
+  margin-top: 1px;
+}
+.nav-item:hover {
   opacity: 1;
-}
-
-.test {
-  position: absolute;
-  top: 50%;
-  left: 100px;
-  width: 500px;
-  height: 100px;
-  border: solid 1px blue;
-}
-.test__child {
-  width: 500px;
-  height: 500px;
-  border: solid 1px green;
 }
 
 @media (max-width: 832px) {
   nav > .container {
     display: none;
   }
+}
+.info h2, .info h3, .info h4, .info h5 {
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.info__headline, .info__subhead, .info__links {
+  display: flex;
+  justify-content: center;
+}
+.info__headline {
+  margin-top: 50px;
+}
+.info__links {
+  margin-top: 1em;
+}
+.info__links a, .info__links span {
+  color: #2997FF;
+  font-size: 18px;
+  font-weight: 600;
+}
+.info__links a:hover {
+  text-decoration: underline;
+}
+.info__links span {
+  margin: 0 5px 0 5px;
+  font-family: "Poppins Regular", sans-serif;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 20px;
+}
+
+.hero {
+  width: 100%;
+  height: 694px;
+  padding-top: 40px;
+}
+.hero__one {
+  background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg");
+}
+.hero__two {
+  background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg");
+}
+.hero__tree {
+  background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg");
+}
+.hero__tree h2 {
+  height: 72px;
+  background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat;
+  background-size: 150px;
+}
+.hero--black {
+  color: #F5F5F7;
+}
+.hero--white {
+  color: #000;
+}
+.hero__one, .hero__two, .hero__tree, .hero__tree h2 {
+  margin-bottom: 10px;
+  background-position: 50% 0;
+}
+
+.home-section__promo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas: "one two" "tree four" "five six";
+  padding: 0 10px 0 10px;
+}
+
+.promo {
+  height: 500px;
+  width: 100%;
+  background-color: lightgray;
+}
+.promo__one {
+  grid-area: one;
+}
+.promo__two {
+  grid-area: two;
+}
+.promo__tree {
+  grid-area: tree;
+}
+.promo__four {
+  grid-area: four;
+}
+.promo__five {
+  grid-area: five;
+}
+.promo__six {
+  grid-area: six;
 }/*# sourceMappingURL=main.css.map */

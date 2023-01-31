@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Lato Light';
+    src: url("../../fonts/Lato/Lato-Light.ttf") format("truetype");
+ }
+
+ @font-face {
+    font-family: 'Roboto Regular';
+    src: url("../../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+ }
+
+ @font-face {
+   font-family: 'Poppins Regular';
+   src: url("../../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
+ 
+ $font-main: 'Lato Light', sans-serif;
+ $font-title: 'Roboto Regular', sans-serif;
+ $font-misc: 'Poppins Regular', sans-serif;

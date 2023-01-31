@@ -1,0 +1,89 @@
+.info {
+    & h2,h3,h4,h5 { margin: 0;letter-spacing: -.005em;}
+
+    &__headline, &__subhead, &__links {
+        display: flex;
+        justify-content: center;
+    }
+    &__headline { margin-top: 50px; }
+    &__links {
+
+        margin-top: 1em;
+
+        & a, span {
+            color: $link;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        & a { &:hover { text-decoration: underline; } }
+
+        & span {
+            margin: 0 5px 0 5px;
+
+            font-family: $font-misc;
+        }
+
+        
+    }
+
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 20px;
+}
+
+.hero {
+    width: 100%;
+    height: 694px;
+
+    padding-top: 40px;
+
+    &__one { background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg"); }
+    &__two { background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg"); }
+    &__tree {
+        background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg");
+
+        & h2 {
+            height: 72px;
+            background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat;
+            background-size: 150px;
+        }
+    }
+
+    &--black { color: $white; }
+    &--white { color: $black; }
+
+    &__one, &__two, &__tree, &__tree h2 {
+        margin-bottom: 10px;
+        background-position: 50% 0;
+    }
+}
+
+.home-section__promo {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+    "one two"
+    "tree four"
+    "five six"; 
+
+    padding: 0 10px 0 10px;
+}
+
+.promo {
+    height: 500px;
+    width: 100%;
+    background-color: lightgray;
+
+    &__one { grid-area: one; }
+    &__two { grid-area: two; }
+    &__tree { grid-area: tree; }
+    &__four { grid-area: four; }
+    &__five { grid-area: five; }
+    &__six { grid-area: six; }
+}
