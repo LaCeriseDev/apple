@@ -1,0 +1,65 @@
+body {
+  font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1em;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  font-size: 12px;
+  color: red;
+  background-color: #1D1D1D;
+}
+
+nav {
+  /* centered content */
+  margin: auto;
+  max-width: 950px;
+  height: 48px;
+  max-height: 44px;
+}
+
+nav > .container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav__item {
+  opacity: 0.8;
+  color: #f5f5f7;
+  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: 0s;
+  transition-property: opacity;
+}
+
+.nav__item:hover {
+  opacity: 1;
+}
+
+.test {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  border: solid 1px blue;
+}
+.test__child {
+  width: 500px;
+  height: 500px;
+  border: solid 1px green;
+}
+
+@media (max-width: 832px) {
+  nav > .container {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
