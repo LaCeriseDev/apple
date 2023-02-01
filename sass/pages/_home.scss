@@ -1,32 +1,17 @@
 .info {
-    & h2,h3,h4,h5 { margin: 0;letter-spacing: -.005em;}
-
-    &__headline, &__subhead, &__links {
-        display: flex;
-        justify-content: center;
-    }
+    & h2,h3,h4,h5 { margin: 0;letter-spacing: -.005rem;}
+    &__headline, &__subhead, &__links { display: flex; justify-content: center; }
     &__headline { margin-top: 50px; }
     &__links {
 
-        margin-top: 1em;
+        line-height: 3rem;
 
-        & a, span {
-            color: $link;
-            font-size: 18px;
-            font-weight: 600;
+        & a, a span { color: $link; font-size: 18px; font-weight: 600; }
+        & a { 
+            & span { margin: 0 5px 0 5px; font-family: $font-misc; }
+            & span:hover { text-decoration: none; color: aqua;}
         }
-
-        & a { &:hover { text-decoration: underline; } }
-
-        & span {
-            margin: 0 5px 0 5px;
-
-            font-family: $font-misc;
-        }
-
-        
     }
-
 }
 
 .links {
@@ -41,14 +26,15 @@
 
     padding-top: 40px;
 
-    &__one { background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg"); }
-    &__two { background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg"); }
+    &__one { background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg") no-repeat center; }
+    &__two { background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg") no-repeat center; }
     &__tree {
-        background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg");
+        background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg") no-repeat center;
 
+        & .info__headline { display: block; }
         & h2 {
-            height: 72px;
-            background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat;
+            height: 60px;
+            background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat center;
             background-size: 150px;
         }
     }
@@ -76,14 +62,52 @@
 }
 
 .promo {
-    height: 500px;
     width: 100%;
-    background-color: lightgray;
+    height: 500px;
 
-    &__one { grid-area: one; }
-    &__two { grid-area: two; }
-    &__tree { grid-area: tree; }
-    &__four { grid-area: four; }
-    &__five { grid-area: five; }
-    &__six { grid-area: six; }
+
+    &--black { color: $white; }
+    &--white { color: $black; }
+
+    &__one { grid-area: one; background: url("../public/img/promo_mbp_preorder__faqgyfz56umq_large.jpg") no-repeat center;}
+    &__two { grid-area: two; background: url("../public/img/promo_homepod_announce__bhviq9vjnlf6_large.jpg") no-repeat center; }
+    &__tree { grid-area: tree; background: url("../public/img/promo_bhm__d8b9z5rlwjgy_large.jpg") no-repeat center; }
+    &__four { grid-area: four; background: url("../public/img/promo_valentines_day_2023__duffhlmdxcqe_large.jpg") no-repeat center; }
+    &__five { grid-area: five; background: url("../public/img/promo-apple-fitness-plus-iphone__bzeal882mv7m_large.jpg") no-repeat center;
+        & .info__headline { display: block; }
+        & h4 {
+            height: 30px;
+            background: url("../public/img/promo_logo_fitness_plus_iphone__dpayetemakq6_large.png") no-repeat center;
+            background-size: 150px;
+        }
+    }
+    &__six { grid-area: six; background: url("../public/img/promo_airpods_pro_avail__gaxggskofx6y_large.jpg") no-repeat center; }
+}
+
+.home-section { &__hero, &__promo { margin-bottom: 10px; } }
+
+@media (max-width: 735px) {
+    .hero {    
+        height: 500px;
+
+        &__one { background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_small.jpg") no-repeat center; }
+        &__two { background: url("../public/img/hero_iphone14__fjmsqstr1ceq_small.jpg") no-repeat center; }
+        &__tree { background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_small.jpg") no-repeat center; }
+    }
+
+    .home-section__promo {
+        display: grid; 
+        grid-template-columns: repeat(1, 1fr); 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 10px 10px; 
+        grid-template-areas: 
+        "one"
+        "two"
+        "tree"
+        "four"
+        "five"
+        "six"; 
+        color: #a89276;
+        padding: 0;
+    }
 }

@@ -1,12 +1,12 @@
 mixin links-info-buy
    div.info.info__links
-            div.links
-               div
-                  a(href="http://" target="_self") En savoir plus 
-                  span  >
-               div
-                  a(href="http://" target="_self") Acheter 
-                  span  > 
+      div.links
+         div
+            a(href="http://" target="_self") En savoir plus 
+               span  >
+         div
+            a(href="http://" target="_self") Acheter 
+               span  > 
 
 main 
    section.home-section.home-section__hero
@@ -16,14 +16,12 @@ main
          div.info.info__subhead
             h3 Pro. Plus ultra.
          +links-info-buy
-
       div.hero.hero__two.hero--white
          div.info.info__headline
             h2 iPhone 14
          div.info.info__subhead
             h3 Un grand. Avec un grand Plus.
          +links-info-buy
-         
       div.hero.hero__tree.hero--black
          div.info.info__headline
             h2
@@ -33,42 +31,61 @@ main
 
 
    section.home-section.home-section__promo
-      div.promo.promo_one
+
+      div.promo.promo__one.promo--black
          div.info.info__headline
             h4 MacBook Pro
          div.info.info__subhead
             h5 Boosté par les puces M2 Pro et M2 Max.
          +links-info-buy
 
-      div.promo.promo_two
+      div.promo.promo__two.promo--black
          div.info.info__headline
             h4 HomePod
          div.info.info__subhead
             h5 Virtuose du son.
-         +links-info-buy
+         div.info.info__links
+            div.links
+               div
+                  a(href="http://" target="_self") En savoir plus 
+                     span  >
+               div
+                  a(href="http://" target="_self") Commander 
+                     span  > 
 
-      div.promo.promo_tree
+      div.promo.promo__tree.promo--black
          div.info.info__headline
             h4 Créativité et communauté. Profondément liées.
          div.info.info__subhead
             h5 Découvrez le nouveau bracelet Black unity et son cadran assorti.
          +links-info-buy
 
-      div.promo.promo_four
+      div.promo.promo__four.promo--white
          div.info.info__headline
             h4 Saint-Valentin
          div.info.info__subhead
             h5 Avec tout votre amour
-         +links-info-buy
+         div.info.info__links
+            div.links
+               div
+                  a(href="http://" target="_self") Acheter 
+                     span  > 
 
-      div.promo.promo_five
+      div.promo.promo__five.promo--white
          div.info.info__headline
-            h4 iPhone 14 Pro
+            h4
          div.info.info__subhead
             h5 Pro. Plus ultra.
-         +links-info-buy
+         div.info.info__links
+            div.links
+               div
+                  a(href="http://" target="_self") En savoir plus 
+                     span  >
+               div
+                  a(href="http://" target="_self") Essayer gratuitement
+                     span  >
 
-      div.promo.promo_six
+      div.promo.promo__six.promo--black
          div.info.info__headline
             h4 iPhone 14 Pro
          div.info.info__subhead
@@ -77,3 +94,32 @@ main
 
 
    section.home-section.home-section__gallery
+
+      div.gallery.gallery__carousel
+         div#carousel__slide-one.carousel__slide.carousel__slide(tabindex=0)
+            div.carousel.carousel__snapper
+               a(href="#carousel__slide-one").carousel.carousel__prev   Go to last slide 
+               a(href="#carousel__slide-two").carousel.carousel__next   Go to next slide 
+         div#carousel__slide-two.carousel__slide(tabindex=0)
+            div.carousel.carousel__snapper
+               a(href="#carousel__slide-one").carousel.carousel__prev   Go to last slide 
+               a(href="#carousel__slide-tree").carousel.carousel__next   Go to next slide 
+         div#carousel__slide-tree.carousel__slide(tabindex=0)
+            div.carousel.carousel__snapper
+               a(href="#carousel__slide-two").carousel.carousel__prev   Go to last slide 
+               a(href="#carousel__slide-four").carousel.carousel__next   Go to next slide 
+         div#carousel__slide-four.carousel__slide(tabindex=0)
+            div.carousel.carousel__snapper
+               a(href="#carousel__slide-tree").carousel.carousel__prev   Go to last slide 
+               a(href="#carousel__slide-one").carousel.carousel__next   Go to next slide
+      
+      aside.gallery.gallery__navigation
+         div.carousel.carousel__navigation-list
+            div.carousel.carousel__navigation-item
+               a(href="#carousel__slide-one").carousel.carousel__navigation-button  Go to slide 1
+            div.carousel.carousel__navigation-item
+               a(href="#carousel__slide-two").carousel.carousel__navigation-button  Go to slide 2
+            div.carousel.carousel__navigation-item
+               a(href="#carousel__slide-tree").carousel.carousel__navigation-button  Go to slide 3
+            div.carousel.carousel__navigation-item
+               a(href="#carousel__slide-four").carousel.carousel__navigation-button  Go to slide 4

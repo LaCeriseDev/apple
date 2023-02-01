@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Lato Light";
   src: url("../../fonts/Lato/Lato-Light.ttf") format("truetype");
@@ -12,7 +13,7 @@
 }
 body {
   margin: 0;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 h2, h4 {
@@ -23,24 +24,268 @@ body, h3, h5 {
   font-family: "Lato Light", sans-serif;
 }
 
-a {
+a, a:hover span {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:hover span {
   text-decoration: none;
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
 }
 
 h4 {
-  font-size: 1.3em;
+  font-size: 1.8rem;
 }
 
 h5 {
-  font-size: 1.2em;
+  font-size: 1.3rem;
+}
+
+@-webkit-keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+@-webkit-keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+@-webkit-keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+.carousel {
+  margin: 0;
+  padding: 0;
+}
+
+.home-section__gallery { /* à fix */
+  position: relative;
+  padding-top: 75%;
+  perspective: 100px;
+}
+
+.gallery__carousel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: itrem;
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: #f99;
+  counter-increment: itrem;
+}
+.carousel__slide:nth-child(even) {
+  background-color: #99f;
+}
+.carousel__slide::before {
+  content: counter(item);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -40%, 70px);
+  color: #F5F5F7;
+  font-size: 2rem;
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carousel__snapper {
+    -webkit-animation-name: tonext, snap;
+            animation-name: tonext, snap;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+  }
+  .carousel__slide:last-child .carousel__snapper {
+    -webkit-animation-name: tostart, snap;
+            animation-name: tostart, snap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    -webkit-animation-name: none;
+            animation-name: none;
+  }
+}
+.home-section__gallery:hover .carousel__snapper, .home-section__gallery:focus-within .carousel__snapper {
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+
+.gallery__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list, .carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #333;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.home-section__gallery::before,
+.home-section__gallery::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.home-section__gallery::before, .carousel__prev {
+  left: 1rem;
+}
+
+.home-section__gallery::after, .carousel__next {
+  right: 1rem;
+}
+
+.home-section__gallery::before,
+.home-section__gallery::after {
+  content: "";
+  z-index: 1;
+  background-color: #333;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #F5F5F7;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.home-section__gallery::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.home-section__gallery::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
 }
 
 header {
@@ -51,6 +296,10 @@ header {
   width: 100%;
   font-size: 12px;
   background-color: #000;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 nav {
@@ -72,7 +321,7 @@ nav > .nav-centered {
   max-height: 44px;
   opacity: 0.8;
   color: #f5f5f7;
-  word-spacing: 0.1em;
+  word-spacing: 0.1rem;
   cursor: pointer;
   transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition-duration: 0.3s;
@@ -88,13 +337,13 @@ nav > .nav-centered {
 }
 
 @media (max-width: 832px) {
-  nav > .container {
+  nav > .nav-centered {
     display: none;
   }
 }
 .info h2, .info h3, .info h4, .info h5 {
   margin: 0;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.005rem;
 }
 .info__headline, .info__subhead, .info__links {
   display: flex;
@@ -104,19 +353,20 @@ nav > .nav-centered {
   margin-top: 50px;
 }
 .info__links {
-  margin-top: 1em;
+  line-height: 3rem;
 }
-.info__links a, .info__links span {
+.info__links a, .info__links a span {
   color: #2997FF;
   font-size: 18px;
   font-weight: 600;
 }
-.info__links a:hover {
-  text-decoration: underline;
-}
-.info__links span {
+.info__links a span {
   margin: 0 5px 0 5px;
   font-family: "Poppins Regular", sans-serif;
+}
+.info__links a span:hover {
+  text-decoration: none;
+  color: aqua;
 }
 
 .links {
@@ -131,17 +381,20 @@ nav > .nav-centered {
   padding-top: 40px;
 }
 .hero__one {
-  background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg");
+  background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.jpg") no-repeat center;
 }
 .hero__two {
-  background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg");
+  background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.jpg") no-repeat center;
 }
 .hero__tree {
-  background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg");
+  background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_largetall.jpg") no-repeat center;
+}
+.hero__tree .info__headline {
+  display: block;
 }
 .hero__tree h2 {
-  height: 72px;
-  background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat;
+  height: 60px;
+  background: url("../public/img/hero_logo_apple_watch_series_8__ezarmmoobhg2_largetall.png") no-repeat center;
   background-size: 150px;
 }
 .hero--black {
@@ -165,25 +418,72 @@ nav > .nav-centered {
 }
 
 .promo {
-  height: 500px;
   width: 100%;
-  background-color: lightgray;
+  height: 500px;
+}
+.promo--black {
+  color: #F5F5F7;
+}
+.promo--white {
+  color: #000;
 }
 .promo__one {
   grid-area: one;
+  background: url("../public/img/promo_mbp_preorder__faqgyfz56umq_large.jpg") no-repeat center;
 }
 .promo__two {
   grid-area: two;
+  background: url("../public/img/promo_homepod_announce__bhviq9vjnlf6_large.jpg") no-repeat center;
 }
 .promo__tree {
   grid-area: tree;
+  background: url("../public/img/promo_bhm__d8b9z5rlwjgy_large.jpg") no-repeat center;
 }
 .promo__four {
   grid-area: four;
+  background: url("../public/img/promo_valentines_day_2023__duffhlmdxcqe_large.jpg") no-repeat center;
 }
 .promo__five {
   grid-area: five;
+  background: url("../public/img/promo-apple-fitness-plus-iphone__bzeal882mv7m_large.jpg") no-repeat center;
+}
+.promo__five .info__headline {
+  display: block;
+}
+.promo__five h4 {
+  height: 30px;
+  background: url("../public/img/promo_logo_fitness_plus_iphone__dpayetemakq6_large.png") no-repeat center;
+  background-size: 150px;
 }
 .promo__six {
   grid-area: six;
+  background: url("../public/img/promo_airpods_pro_avail__gaxggskofx6y_large.jpg") no-repeat center;
+}
+
+.home-section__hero, .home-section__promo {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 735px) {
+  .hero {
+    height: 500px;
+  }
+  .hero__one {
+    background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_small.jpg") no-repeat center;
+  }
+  .hero__two {
+    background: url("../public/img/hero_iphone14__fjmsqstr1ceq_small.jpg") no-repeat center;
+  }
+  .hero__tree {
+    background: url("../public/img/hero_apple_watch_series_8__bjc1ok5mkjua_small.jpg") no-repeat center;
+  }
+  .home-section__promo {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas: "one" "two" "tree" "four" "five" "six";
+    color: #a89276;
+    padding: 0;
+  }
 }/*# sourceMappingURL=main.css.map */
