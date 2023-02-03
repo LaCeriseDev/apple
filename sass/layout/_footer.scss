@@ -1,5 +1,8 @@
 footer {
+    // background-color: $footer;
+
     & .container {
+
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1.2fr 1.4fr 0.4fr;
@@ -11,26 +14,40 @@ footer {
     }
 
     .footer {
-        &__two {
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: repeat(3, 1fr); 
-            gap: 0px 0px; 
-            grid-template-areas: 
-              "directory-one directory-two directory-tree"
-              "directory-one directory-two directory-tree"
-              "directory-one directory-two directory-tree"; 
-        }
-    
         &__one { grid-area: footer__one; }
         &__two { grid-area: footer__two; 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            grid-template-rows: repeat(5, 1fr); 
+            gap: 0px 50px; 
+            grid-template-areas: 
+              "directory-one directory-two directory-tree directory-four directory-five"
+              "directory-one directory-two directory-tree directory-four directory-five"
+              "directory-one directory-two directory-tree directory-four directory-five";
+
             & .directory {
+                display: flex;
+                flex-direction: column;
+
+                & h3 {
+                    margin: 20px 0 8px 0; 
+                    font-family: $font-title; 
+                    font-size: .9rem; 
+                    color: #1D1D1F; 
+                    line-height: .2rem;
+                }
+                & a {font-family: $font-title; font-size: .84rem; color: $footer-a; line-height: 1.5rem; }
+                
                 &__one { grid-area: directory__one; }
                 &__two { grid-area: directory__two; }
                 &__tree { grid-area: directory__tree; }
+                &__tree { grid-area: directory__four; }
+                &__tree { grid-area: directory__five; }
+
             }
         }
         &__tree { grid-area: footer__tree; }
+        &__one, &__two { border-bottom: 1px solid grey; }
     
     }
 }

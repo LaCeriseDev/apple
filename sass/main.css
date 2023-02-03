@@ -299,7 +299,6 @@ header {
   z-index: 9999;
   width: 100%;
   font-size: 12px;
-  backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -351,18 +350,33 @@ footer .container {
   gap: 0px 0px;
   grid-template-areas: "footer__one footer__one footer__one" "footer__two footer__two footer__two" "footer__tree footer__tree footer__tree";
 }
-footer .footer__two {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 0px 0px;
-  grid-template-areas: "directory-one directory-two directory-tree" "directory-one directory-two directory-tree" "directory-one directory-two directory-tree";
-}
 footer .footer__one {
   grid-area: footer__one;
 }
 footer .footer__two {
   grid-area: footer__two;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0px 50px;
+  grid-template-areas: "directory-one directory-two directory-tree directory-four directory-five" "directory-one directory-two directory-tree directory-four directory-five" "directory-one directory-two directory-tree directory-four directory-five";
+}
+footer .footer__two .directory {
+  display: flex;
+  flex-direction: column;
+}
+footer .footer__two .directory h3 {
+  margin: 20px 0 8px 0;
+  font-family: "Roboto Regular", sans-serif;
+  font-size: 0.9rem;
+  color: #1D1D1F;
+  line-height: 0.2rem;
+}
+footer .footer__two .directory a {
+  font-family: "Roboto Regular", sans-serif;
+  font-size: 0.84rem;
+  color: #424245;
+  line-height: 1.5rem;
 }
 footer .footer__two .directory__one {
   grid-area: directory__one;
@@ -373,8 +387,17 @@ footer .footer__two .directory__two {
 footer .footer__two .directory__tree {
   grid-area: directory__tree;
 }
+footer .footer__two .directory__tree {
+  grid-area: directory__four;
+}
+footer .footer__two .directory__tree {
+  grid-area: directory__five;
+}
 footer .footer__tree {
   grid-area: footer__tree;
+}
+footer .footer__one, footer .footer__two {
+  border-bottom: 1px solid grey;
 }
 
 .info h2, .info h3, .info h4, .info h5 {
