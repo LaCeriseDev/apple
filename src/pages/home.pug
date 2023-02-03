@@ -1,33 +1,49 @@
-mixin links-info-buy
+- var hero_one="img/hero_iphone14pro__e5xbgo5ffhg2_largetall.png"
+- var hero_one_alt="iphone 14 pro"
+- var hero_one_h2="Iphone 14 Pro"
+- var hero_one_h3="Pro. Plus ultra."
+
+mixin links-info(first_param,second_param)
    div.info.info__links
       div.links
-         div
-            a(href="http://" target="_self") En savoir plus 
+         if first_param=="knowledge"
+            div
+               a(href="http://" target="_self") En savoir plus 
                span  >
-         div
-            a(href="http://" target="_self") Acheter 
-               span  > 
+         if second_param=="buy"
+            div
+               a(href="http://" target="_self") Acheter 
+               span  >
+         if second_param=="try"
+            div
+               a(href="http://" target="_self") Essai gratuit
+               span  >
+         if second_param=="command"
+            div
+               a(href="http://" target="_self") Commander 
+               span  >
 
 main 
    section.home-section.home-section__hero
       div.hero.hero__one.hero--black
+         img(src=hero_one, alt=hero_one_alt)
          div.info.info__headline
-            h2 iPhone 14 Pro
+            h2 hero_one_h2
          div.info.info__subhead
-            h3 Pro. Plus ultra.
-         +links-info-buy
+            h3 hero_one_h3
+         +links-info("knowledge","buy")
       div.hero.hero__two.hero--white
          div.info.info__headline
             h2 iPhone 14
          div.info.info__subhead
             h3 Un grand. Avec un grand Plus.
-         +links-info-buy
+         +links-info("knowledge","sell")
       div.hero.hero__tree.hero--black
          div.info.info__headline
             h2
          div.info.info__subhead
             h3 Plus en forme que jamais.
-         +links-info-buy
+         +links-info("knowledge","buy")
 
 
    section.home-section.home-section__promo
@@ -37,60 +53,42 @@ main
             h4 MacBook Pro
          div.info.info__subhead
             h5 Boosté par les puces M2 Pro et M2 Max.
-         +links-info-buy
+         +links-info("knowledge","buy")
 
       div.promo.promo__two.promo--black
          div.info.info__headline
             h4 HomePod
          div.info.info__subhead
             h5 Virtuose du son.
-         div.info.info__links
-            div.links
-               div
-                  a(href="http://" target="_self") En savoir plus 
-                     span  >
-               div
-                  a(href="http://" target="_self") Commander 
-                     span  > 
+         +links-info("knowledge","command")
 
       div.promo.promo__tree.promo--black
          div.info.info__headline
             h4 Créativité et communauté. Profondément liées.
          div.info.info__subhead
             h5 Découvrez le nouveau bracelet Black unity et son cadran assorti.
-         +links-info-buy
+         +links-info("","buy")
 
       div.promo.promo__four.promo--white
          div.info.info__headline
             h4 Saint-Valentin
          div.info.info__subhead
             h5 Avec tout votre amour
-         div.info.info__links
-            div.links
-               div
-                  a(href="http://" target="_self") Acheter 
-                     span  > 
+         +links-info("","buy")
 
       div.promo.promo__five.promo--white
          div.info.info__headline
             h4
          div.info.info__subhead
             h5 Pro. Plus ultra.
-         div.info.info__links
-            div.links
-               div
-                  a(href="http://" target="_self") En savoir plus 
-                     span  >
-               div
-                  a(href="http://" target="_self") Essayer gratuitement
-                     span  >
+         +links-info("knowledge","try")
 
       div.promo.promo__six.promo--black
          div.info.info__headline
             h4 iPhone 14 Pro
          div.info.info__subhead
             h5 Pro. Plus ultra.
-         +links-info-buy
+         +links-info("knowledge","buy")
 
 
    section.home-section.home-section__gallery
