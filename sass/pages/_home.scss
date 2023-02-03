@@ -15,19 +15,16 @@
     display: flex;
     justify-content: space-between;
     gap: 0 20px;
-
+}
 
 .hero {
     width: 100%;
-    min-height: 694px;
+    height: 694px;
 
-    & .info__headline, & .info__subhead, & .info__links { position: absolute; top:0; left:0;}
+    padding-top: 40px;
 
     &__one { 
-        position: relative;
-        background-color: $black;
-        /*background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.png") no-repeat center $black;*/
-    
+        background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.png") no-repeat center $black; 
     }
     &__two { background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.png") no-repeat center; }
     &__tree {
@@ -44,7 +41,9 @@
     &--black { color: $white; }
     &--white { color: $black; }
 
-    &__one, &__two, &__tree, &__tree h2 { margin-bottom: 10px; }
+    &__one, &__two, &__tree, &__tree h2 {
+        margin-bottom: 10px;
+    }
 }
 
 .home-section__promo {

@@ -1,0 +1,36 @@
+footer {
+    & .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1.2fr 1.4fr 0.4fr;
+        gap: 0px 0px;
+        grid-template-areas: 
+        "footer__one footer__one footer__one"
+        "footer__two footer__two footer__two"
+        "footer__tree footer__tree footer__tree";
+    }
+
+    .footer {
+        &__two {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(3, 1fr); 
+            gap: 0px 0px; 
+            grid-template-areas: 
+              "directory-one directory-two directory-tree"
+              "directory-one directory-two directory-tree"
+              "directory-one directory-two directory-tree"; 
+        }
+    
+        &__one { grid-area: footer__one; }
+        &__two { grid-area: footer__two; 
+            & .directory {
+                &__one { grid-area: directory__one; }
+                &__two { grid-area: directory__two; }
+                &__tree { grid-area: directory__tree; }
+            }
+        }
+        &__tree { grid-area: footer__tree; }
+    
+    }
+}

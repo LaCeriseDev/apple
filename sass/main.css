@@ -159,8 +159,8 @@ h5 {
   bottom: 0;
   left: 0;
   display: flex;
-  overflow-x: scroll;
-  counter-reset: itrem;
+  overflow-x: hidden;
+  counter-reset: item;
   scroll-behavior: smooth;
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
@@ -344,6 +344,39 @@ nav > .nav-centered {
     display: none;
   }
 }
+footer .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1.2fr 1.4fr 0.4fr;
+  gap: 0px 0px;
+  grid-template-areas: "footer__one footer__one footer__one" "footer__two footer__two footer__two" "footer__tree footer__tree footer__tree";
+}
+footer .footer__two {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px 0px;
+  grid-template-areas: "directory-one directory-two directory-tree" "directory-one directory-two directory-tree" "directory-one directory-two directory-tree";
+}
+footer .footer__one {
+  grid-area: footer__one;
+}
+footer .footer__two {
+  grid-area: footer__two;
+}
+footer .footer__two .directory__one {
+  grid-area: directory__one;
+}
+footer .footer__two .directory__two {
+  grid-area: directory__two;
+}
+footer .footer__two .directory__tree {
+  grid-area: directory__tree;
+}
+footer .footer__tree {
+  grid-area: footer__tree;
+}
+
 .info h2, .info h3, .info h4, .info h5 {
   margin: 0;
   letter-spacing: -0.005rem;
@@ -376,15 +409,11 @@ nav > .nav-centered {
 
 .hero {
   width: 100%;
-  min-height: 694px;
-}
-.hero .info__headline, .hero .info__subhead, .hero .info__links {
-  position: absolute;
+  height: 694px;
+  padding-top: 40px;
 }
 .hero__one {
-  position: relative;
-  background-color: #000;
-  /*background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.png") no-repeat center $black;*/
+  background: url("../public/img/hero_iphone14pro__e5xbgo5ffhg2_largetall.png") no-repeat center #000;
 }
 .hero__two {
   background: url("../public/img/hero_iphone14__fjmsqstr1ceq_largetall.png") no-repeat center;
