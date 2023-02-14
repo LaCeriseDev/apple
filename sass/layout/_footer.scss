@@ -1,53 +1,109 @@
 footer {
-    // background-color: $footer;
+    background-color: $footer;
+    font-size: .9em;
 
     & .container {
-
+        margin: auto;
+        max-width: 950px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1.2fr 1.4fr 0.4fr;
         gap: 0px 0px;
         grid-template-areas: 
         "footer__one footer__one footer__one"
         "footer__two footer__two footer__two"
         "footer__tree footer__tree footer__tree";
     }
-
+    
     .footer {
-        &__one { grid-area: footer__one; }
-        &__two { grid-area: footer__two; 
+        font-family: $font-title;
+        font-size: .8em; 
+        line-height: 1.2em;
+        
+        &__one { 
+            grid-area: footer__one;
+            color: $footer-text;
+            font-size: .8em; 
+            line-height: 1.2em;
+        }
+
+        &__two { 
+            grid-area: footer__two; 
             display: grid; 
             grid-template-columns: repeat(5, 1fr); 
-            grid-template-rows: repeat(5, 1fr); 
             gap: 0px 50px; 
             grid-template-areas: 
-              "directory-one directory-two directory-tree directory-four directory-five"
-              "directory-one directory-two directory-tree directory-four directory-five"
-              "directory-one directory-two directory-tree directory-four directory-five";
-
+            "directory-one directory-two directory-tree directory-four directory-five"
+            "directory-one directory-two directory-tree directory-four directory-five"
+            "directory-one directory-two directory-tree directory-four directory-five";
+              
             & .directory {
                 display: flex;
                 flex-direction: column;
-
+                
                 & h3 {
                     margin: 20px 0 8px 0; 
-                    font-family: $font-title; 
-                    font-size: .9rem; 
-                    color: #1D1D1F; 
-                    line-height: .2rem;
+                    font-size: 1em; 
+                    color: black; 
+                    line-height: 2em;
                 }
-                & a {font-family: $font-title; font-size: .84rem; color: $footer-a; line-height: 1.5rem; }
+                & a {font-size: .84rem; color: $footer-link; line-height: 1.5rem; }
                 
                 &__one { grid-area: directory__one; }
                 &__two { grid-area: directory__two; }
                 &__tree { grid-area: directory__tree; }
-                &__tree { grid-area: directory__four; }
-                &__tree { grid-area: directory__five; }
+                &__four { grid-area: directory__four; }
+                &__five { grid-area: directory__five; }
 
+                & .expand { display: none; }
+            }
+
+            @media (max-width: 832px) { 
+                display: flex;
+                flex-direction: column;
+
+                & .directory { 
+                    display: flex;
+                    flex-direction: column;
+                    & .expand { display: block; }
+                    & h3 {
+                        border-bottom: 1px solid $footer-border;
+                        margin: 0;
+                        padding: 10px 0 10px 0;
+                    }
+                }
+                & a { display: none; }
             }
         }
-        &__tree { grid-area: footer__tree; }
-        &__one, &__two { border-bottom: 1px solid grey; }
-    
+
+      
+
+        &__tree { grid-area: footer__tree; 
+            display: flex;
+            flex-direction: column;
+            padding: 34px 0 21px 0;
+
+            & .footer-info {
+                margin-bottom: 8px;
+                color: $footer-text;
+
+                &__legal {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                &__link {
+
+                    color: $footer-link;
+                    & a { 
+                        &:visited { color: $footer-link;}
+                        border-right: 1px solid $footer-pipe; 
+                        padding: 0 10px 0 10px;
+                        &:first-child { padding: 0 10px 0 0; }
+                        &:last-child { padding: 0 0 0 10px; border-style: none; }
+                    }
+                }
+            }
+        }
+        &__one, & .footer-info__shop { border-bottom: 1px solid $footer-border; }
     }
 }
